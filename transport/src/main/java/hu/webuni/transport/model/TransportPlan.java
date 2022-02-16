@@ -22,8 +22,9 @@ public class TransportPlan {
 	public TransportPlan() {
 	}
 
-	public TransportPlan(Long id, List<Section> sections) {
+	public TransportPlan(Long id, Float income, List<Section> sections) {
 		this.id = id;
+		this.income = income;
 		this.sections = sections;
 	}
 
@@ -51,5 +52,14 @@ public class TransportPlan {
 	public void addSection(Section section) {
 		this.sections.add(section);
 	}
+
+	public Float getIncome() {
+		return income;
+	}
+
+	public void setIncome(Float income) {
+		this.income = income;
+	}
+	
 	
 }
