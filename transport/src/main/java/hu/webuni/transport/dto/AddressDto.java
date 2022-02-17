@@ -1,13 +1,22 @@
 package hu.webuni.transport.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class AddressDto {
 
 	private Long id;
+	@NotBlank
 	private String iso;
+	@NotBlank
 	private String city;
+	@NotBlank
 	private String street;
+	@Min(1000)
 	private Integer zip;
+	@NotBlank
 	private String sn;
+	
 	private Float latitude;
 	private Float longitude;
 	
