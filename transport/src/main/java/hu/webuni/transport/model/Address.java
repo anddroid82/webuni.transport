@@ -1,31 +1,32 @@
 package hu.webuni.transport.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Address {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_generator")
+	@SequenceGenerator(name="address_generator", sequenceName = "address_seq")
 	private Long id;
 	
-	@Column(unique = true)
 	private String iso;
 	
 	private String city;
 	private String street;
 	private Integer zip;
-	private Integer sn;
+	private String sn;
 	private Float latitude;
 	private Float longitude;
 	
 	public Address() {
 	}
 
-	public Address(Long id, String iso, String city, String street, Integer zip, Integer sn, Float latitude,
+	public Address(Long id, String iso, String city, String street, Integer zip, String sn, Float latitude,
 			Float longitude) {
 		this.id = id;
 		this.iso = iso;
@@ -77,11 +78,11 @@ public class Address {
 		this.zip = zip;
 	}
 
-	public Integer getSn() {
+	public String getSn() {
 		return sn;
 	}
 
-	public void setSn(Integer sn) {
+	public void setSn(String sn) {
 		this.sn = sn;
 	}
 

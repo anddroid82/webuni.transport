@@ -4,15 +4,18 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Milestone {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "milestone_generator")
+	@SequenceGenerator(name="milestone_generator", sequenceName = "milestone_seq")
 	private Long id;
 	
 	@ManyToOne
@@ -67,7 +70,7 @@ public class Milestone {
 
 	public void setFromSection(Section fromSection) {
 		this.fromSection = fromSection;
-		this.fromSection.setFromMilestone(this);
+		//this.fromSection.setFromMilestone(this);
 	}
 
 	public Section getToSection() {
@@ -76,7 +79,7 @@ public class Milestone {
 
 	public void setToSection(Section toSection) {
 		this.toSection = toSection;
-		this.toSection.setToMilestone(this);
+		//this.toSection.setToMilestone(this);
 	}
 	
 	@Override

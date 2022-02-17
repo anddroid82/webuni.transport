@@ -2,15 +2,18 @@ package hu.webuni.transport.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Section {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "section_generator")
+	@SequenceGenerator(name="section_generator", sequenceName = "section_seq")
 	private Long id;
 	
 	@OneToOne
@@ -50,6 +53,7 @@ public class Section {
 
 	public void setFromMilestone(Milestone fromMilestone) {
 		this.fromMilestone = fromMilestone;
+		this.fromMilestone.setFromSection(this);
 	}
 
 	public Milestone getToMilestone() {
@@ -58,6 +62,7 @@ public class Section {
 
 	public void setToMilestone(Milestone toMilestone) {
 		this.toMilestone = toMilestone;
+		this.toMilestone.setToSection(this);
 	}
 
 	public Integer getNumber() {
@@ -74,7 +79,7 @@ public class Section {
 
 	public void setTransportPlan(TransportPlan transportPlan) {
 		this.transportPlan = transportPlan;
-		this.transportPlan.addSection(this);
+		//this.transportPlan.addSection(this);
 	}
 	
 	@Override
