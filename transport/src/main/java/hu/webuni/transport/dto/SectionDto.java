@@ -38,7 +38,7 @@ public class SectionDto {
 
 	public void setFromMilestone(MilestoneDto fromMilestone) {
 		this.fromMilestone = fromMilestone;
-		this.fromMilestone.setFromSection(this);
+		//this.fromMilestone.setFromSection(this);
 	}
 
 	public MilestoneDto getToMilestone() {
@@ -47,7 +47,7 @@ public class SectionDto {
 
 	public void setToMilestone(MilestoneDto toMilestone) {
 		this.toMilestone = toMilestone;
-		this.toMilestone.setToSection(this);
+		//this.toMilestone.setToSection(this);
 	}
 
 	public Integer getNumber() {

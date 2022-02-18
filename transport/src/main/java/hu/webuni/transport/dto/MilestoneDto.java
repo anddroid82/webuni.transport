@@ -11,7 +11,6 @@ public class MilestoneDto {
 	private LocalDateTime plannedTime;
 	
 	private SectionDto fromSection;
-	
 	private SectionDto toSection;
 
 	public MilestoneDto() {
