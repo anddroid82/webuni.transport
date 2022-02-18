@@ -7,10 +7,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
+@NamedEntityGraph(
+		name = "Milestone.full",
+		attributeNodes = {
+				@NamedAttributeNode("address"),
+				@NamedAttributeNode(value = "fromSection", subgraph = "Section.full"),
+				@NamedAttributeNode(value = "toSection", subgraph = "Section.full"),
+		},
+		subgraphs = {
+				@NamedSubgraph(
+						name = "Section.full",
+						attributeNodes = {
+								@NamedAttributeNode(value = "fromMilestone"), //TODO: kell-e????
+								@NamedAttributeNode(value = "toMilestone"), //TODO: kell-e????
+								@NamedAttributeNode(value = "transportPlan")
+						}
+				)
+		}
+)
 public class Milestone {
 
 	@Id
