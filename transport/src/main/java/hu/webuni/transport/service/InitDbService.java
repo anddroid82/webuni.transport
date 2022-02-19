@@ -52,32 +52,42 @@ public class InitDbService {
 		a4=addressRepository.save(a4);a5=addressRepository.save(a5);a6=addressRepository.save(a6);
 		
 		Milestone m1=new Milestone(0L, a1, LocalDateTime.parse("2022-03-03T12:23:30"), null, null);
+		Milestone m20=new Milestone(0L, a2, LocalDateTime.parse("2022-03-04T04:23:30"), null, null);
 		Milestone m2=new Milestone(0L, a2, LocalDateTime.parse("2022-03-04T13:23:30"), null, null);
+		Milestone m30=new Milestone(0L, a3, LocalDateTime.parse("2022-03-05T08:23:30"), null, null);
 		Milestone m3=new Milestone(0L, a3, LocalDateTime.parse("2022-03-06T15:23:30"), null, null);
+		Milestone m40=new Milestone(0L, a4, LocalDateTime.parse("2022-03-07T06:26:30"), null, null);
 		Milestone m4=new Milestone(0L, a4, LocalDateTime.parse("2022-03-07T16:26:30"), null, null);
+		Milestone m50=new Milestone(0L, a1, LocalDateTime.parse("2022-03-08T10:27:30"), null, null);
 		Milestone m5=new Milestone(0L, a1, LocalDateTime.parse("2022-03-08T17:27:30"), null, null);
 		Milestone m6=new Milestone(0L, a4, LocalDateTime.parse("2022-03-10T12:23:30"), null, null);
+		Milestone m70=new Milestone(0L, a5, LocalDateTime.parse("2022-03-10T20:23:30"), null, null);
 		Milestone m7=new Milestone(0L, a5, LocalDateTime.parse("2022-03-11T08:23:30"), null, null);
+		Milestone m80=new Milestone(0L, a6, LocalDateTime.parse("2022-03-12T08:23:30"), null, null);
 		Milestone m8=new Milestone(0L, a6, LocalDateTime.parse("2022-03-12T16:23:30"), null, null);
 		Milestone m9=new Milestone(0L, a2, LocalDateTime.parse("2022-03-13T18:23:30"), null, null);
 		
-		m1 = milestoneRepository.save(m1);m2 = milestoneRepository.save(m2);m3 = milestoneRepository.save(m3);
-		m4 = milestoneRepository.save(m4);m5 = milestoneRepository.save(m5);m6 = milestoneRepository.save(m6);
-		m7 = milestoneRepository.save(m7);m8 = milestoneRepository.save(m8);m9 = milestoneRepository.save(m9);
+		m1 = milestoneRepository.save(m1);m20 = milestoneRepository.save(m20);
+		m2 = milestoneRepository.save(m2);m3 = milestoneRepository.save(m3);m30 = milestoneRepository.save(m30);
+		m4 = milestoneRepository.save(m4);m40 = milestoneRepository.save(m40);
+		m5 = milestoneRepository.save(m5);m50 = milestoneRepository.save(m50);m6 = milestoneRepository.save(m6);
+		m7 = milestoneRepository.save(m7);m70 = milestoneRepository.save(m70);
+		m8 = milestoneRepository.save(m8);m80 = milestoneRepository.save(m80);
+		m9 = milestoneRepository.save(m9);
 		
-		TransportPlan tp1 = new TransportPlan(0L, 560000f, null);
-		TransportPlan tp2 = new TransportPlan(0L, 870000f, null);
+		TransportPlan tp1 = new TransportPlan(0L, 600000f, null);
+		TransportPlan tp2 = new TransportPlan(0L, 850000f, null);
 		
 		tp1 = transportPlanRepository.save(tp1);
 		tp2 = transportPlanRepository.save(tp2);
 		
-		Section s1 = new Section(0L, m1, m2, 0, tp1);
-		Section s2 = new Section(0L, m2, m3, 1, tp1);
-		Section s3 = new Section(0L, m3, m4, 2, tp1);
-		Section s4 = new Section(0L, m4, m5, 3, tp1);
+		Section s1 = new Section(0L, m1, m20, 0, tp1);
+		Section s2 = new Section(0L, m2, m30, 1, tp1);
+		Section s3 = new Section(0L, m3, m40, 2, tp1);
+		Section s4 = new Section(0L, m4, m50, 3, tp1);
 		
-		Section s5 = new Section(0L, m6, m7, 0, tp2);
-		Section s6 = new Section(0L, m7, m8, 1, tp2);
+		Section s5 = new Section(0L, m6, m70, 0, tp2);
+		Section s6 = new Section(0L, m7, m80, 1, tp2);
 		Section s7 = new Section(0L, m8, m9, 2, tp2);
 		
 		s1 = sectionRepository.save(s1);s2 = sectionRepository.save(s2);s3 = sectionRepository.save(s3);
