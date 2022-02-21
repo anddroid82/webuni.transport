@@ -30,6 +30,7 @@ public interface TransportPlanMapper {
 	
 	//#################################
 	
+	/*
 	@Mapping(target = "sections", qualifiedByName = "dtoToSection")
 	TransportPlan dtoToTransportPlan(TransportPlanDto tp);
 	
@@ -43,5 +44,5 @@ public interface TransportPlanMapper {
 	@Mapping(target = "fromSection", ignore = true)
 	@Mapping(target = "toSection", ignore = true)
 	Milestone dtoToMilestone(MilestoneDto milestone);
-	
+	*/
 }

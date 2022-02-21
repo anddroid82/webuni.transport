@@ -25,6 +25,7 @@ public class TransportPlanService {
 	@Autowired
 	TransportConfigurationProperties transportConfigurationProperties;
 	
+	@Transactional
 	public TransportPlan getTransportPlan(Long id) {
 		Optional<TransportPlan> tp = transportPlanRepository.findByIdFull(id);
 		if (tp.isPresent()) {

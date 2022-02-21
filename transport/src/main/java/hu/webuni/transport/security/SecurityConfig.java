@@ -44,14 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.authorizeRequests()
 			.antMatchers(HttpMethod.POST,"/api/addresses").hasAuthority("AddressManager")
-			.antMatchers("/api/login").permitAll()
-			.anyRequest().denyAll();
-//			.antMatchers("/api/addresses/search").permitAll()
-//			.antMatchers(HttpMethod.POST,"/api/addresses/*").hasAuthority("AddressManager")
-//			.antMatchers(HttpMethod.PUT,"/api/addresses/*").hasAuthority("AddressManager")
-//			.antMatchers(HttpMethod.DELETE,"/api/addresses/*").hasAuthority("AddressManager")
-//			.antMatchers("/api/transportPlans/*/delay").hasAuthority("TransportManager")
-//			.anyRequest().permitAll();
+			.antMatchers(HttpMethod.DELETE,"/api/addresses/*").hasAuthority("AddressManager")
+			.antMatchers(HttpMethod.PUT,"/api/addresses/*").hasAuthority("AddressManager")
+			.antMatchers("/api/transportPlans/*/delay").hasAuthority("TransportManager")
+			//.antMatchers("/api/login").permitAll()
+			.anyRequest().permitAll();
 		
 		http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 	}

@@ -35,7 +35,6 @@ public class AddressController {
 	@Autowired
 	AddressService addressService;
 	
-	
 	@PostMapping
 	public ResponseEntity<AddressDto> createAddress(@Valid @RequestBody(required = true) AddressDto address,BindingResult bindingResult) {
 		if (bindingResult.hasErrors() || address.getId()!=null) {
