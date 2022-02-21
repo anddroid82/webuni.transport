@@ -23,7 +23,7 @@ public class JwtService {
 		String token = JWT.create()
 			.withSubject(userDetails.getUsername())
 			.withArrayClaim(AUTH, userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toArray(String[]::new))
-			.withExpiresAt(new Date(System.currentTimeMillis()+EXPIRE_MINUTES*3600*1000))
+			.withExpiresAt(new Date(System.currentTimeMillis()+EXPIRE_MINUTES*60000))
 			.withIssuer(ISSUER)
 			.sign(ALG);			
 		return token;

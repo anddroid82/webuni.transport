@@ -3,10 +3,13 @@ package hu.webuni.transport.dto;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.Length;
+
 public class AddressDto {
 
 	private Long id;
 	@NotBlank
+	@Length(min = 2, max = 2)
 	private String iso;
 	@NotBlank
 	private String city;

@@ -196,9 +196,9 @@ public class TransportPlanControllerIT {
 		MilestoneDto fromMileStoneBefore = transportPlanBefore.getSections().get(sectionNumber+1).getFromMilestone();
 		MilestoneDto fromMileStoneAfter = transportPlanAfter.getSections().get(sectionNumber+1).getFromMilestone();
 		
-		//a fromMilestone idő ellenőrzése
-		assertThat(toMileStoneBefore.getPlannedTime().plusMinutes(delay)).isEqualToIgnoringSeconds(toMileStoneAfter.getPlannedTime());
 		//a toMilestone idő ellenőrzése
+		assertThat(toMileStoneBefore.getPlannedTime().plusMinutes(delay)).isEqualToIgnoringSeconds(toMileStoneAfter.getPlannedTime());
+		//a fromMilestone idő ellenőrzése
 		assertThat(fromMileStoneBefore.getPlannedTime().plusMinutes(delay)).isEqualToIgnoringSeconds(fromMileStoneAfter.getPlannedTime());
 		//a bevétel ellenőrzése
 		assertThat(transportPlanBefore.getIncome()*(100-incomeMinusWithPercent)/100.0f).isEqualTo(transportPlanAfter.getIncome());

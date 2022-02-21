@@ -47,7 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.DELETE,"/api/addresses/*").hasAuthority("AddressManager")
 			.antMatchers(HttpMethod.PUT,"/api/addresses/*").hasAuthority("AddressManager")
 			.antMatchers("/api/transportPlans/*/delay").hasAuthority("TransportManager")
-			//.antMatchers("/api/login").permitAll()
 			.anyRequest().permitAll();
 		
 		http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
